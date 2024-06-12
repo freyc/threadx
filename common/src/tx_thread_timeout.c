@@ -75,7 +75,7 @@
 /*                                            resulting in version 6.1    */
 /*                                                                        */
 /**************************************************************************/
-VOID  _tx_thread_timeout(ULONG timeout_input)
+VOID  _tx_thread_timeout(ALIGN_TYPE timeout_input)
 {
 
 TX_INTERRUPT_SAVE_AREA

@@ -62,7 +62,7 @@ VOID        _tx_timer_expiration_process(VOID);
 VOID        _tx_timer_initialize(VOID);
 VOID        _tx_timer_system_activate(TX_TIMER_INTERNAL *timer_ptr);
 VOID        _tx_timer_system_deactivate(TX_TIMER_INTERNAL *timer_ptr);
-VOID        _tx_timer_thread_entry(ULONG timer_thread_input);
+VOID        _tx_timer_thread_entry(ALIGN_TYPE timer_thread_input);
 
 
 /* Timer management component data declarations follow.  */

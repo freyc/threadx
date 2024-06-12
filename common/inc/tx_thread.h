@@ -288,7 +288,7 @@ VOID        _tx_thread_system_return(VOID);
 VOID        _tx_thread_system_suspend(TX_THREAD *thread_ptr);
 VOID        _tx_thread_system_ni_suspend(TX_THREAD *thread_ptr, ULONG wait_option);
 VOID        _tx_thread_time_slice(VOID);
-VOID        _tx_thread_timeout(ULONG timeout_input);
+VOID        _tx_thread_timeout(ALIGN_TYPE timeout_input);
 
 
 /* Thread control component data declarations follow.  */
