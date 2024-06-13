@@ -61,7 +61,7 @@ static unsigned long isr_executed =  0;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 UINT            _tx_byte_release(VOID *memory_ptr);
 
 
@@ -72,7 +72,7 @@ void  test_control_return(UINT status);
 
 /* Define the timer for this test.  */
 
-static void    timer_entry(ULONG i)
+static void    timer_entry(ALIGN_TYPE i)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING
@@ -344,7 +344,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;

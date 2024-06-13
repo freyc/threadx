@@ -13,7 +13,7 @@ void  test_control_return(UINT status);
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 
 
 /* Define what the initial system looks like.  */
@@ -52,7 +52,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 ULONG   current_time;

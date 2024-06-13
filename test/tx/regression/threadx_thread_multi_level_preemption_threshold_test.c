@@ -10,11 +10,11 @@
 static unsigned long   thread_0_counter =  0;
 static TX_THREAD       thread_1;
 static TX_THREAD       thread_2;
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    thread_3_entry(ULONG thread_input);
-static void    thread_2a_entry(ULONG thread_input);
-static void    thread_4_entry(ULONG thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    thread_3_entry(ALIGN_TYPE thread_input);
+static void    thread_2a_entry(ALIGN_TYPE thread_input);
+static void    thread_4_entry(ALIGN_TYPE thread_input);
 static unsigned long   thread_1_counter =  0;
 
 static unsigned long   thread_2_counter =  0;
@@ -85,27 +85,27 @@ static unsigned long   thread_30_29_counter =  0;
 
 /* Define new preemption-threshold test thread entry points.  */
 
-static void    thread_1_0_entry(ULONG thread_input);
-static void    thread_2_1_entry(ULONG thread_input);
-static void    thread_3_2_entry(ULONG thread_input);
-static void    thread_4_3_entry(ULONG thread_input);
-static void    thread_6_5_entry(ULONG thread_input);
-static void    thread_8_7_entry(ULONG thread_input);
-static void    thread_10_9_entry(ULONG thread_input);
-static void    thread_12_11_entry(ULONG thread_input);
-static void    thread_14_13_entry(ULONG thread_input);
-static void    thread_16_15_entry(ULONG thread_input);
-static void    thread_18_17_entry(ULONG thread_input);
-static void    thread_20_19_entry(ULONG thread_input);
-static void    thread_22_21_entry(ULONG thread_input);
-static void    thread_24_23_entry(ULONG thread_input);
-static void    thread_26_25_entry(ULONG thread_input);
-static void    thread_28_27_entry(ULONG thread_input);
-static void    thread_30_29_entry(ULONG thread_input);
+static void    thread_1_0_entry(ALIGN_TYPE thread_input);
+static void    thread_2_1_entry(ALIGN_TYPE thread_input);
+static void    thread_3_2_entry(ALIGN_TYPE thread_input);
+static void    thread_4_3_entry(ALIGN_TYPE thread_input);
+static void    thread_6_5_entry(ALIGN_TYPE thread_input);
+static void    thread_8_7_entry(ALIGN_TYPE thread_input);
+static void    thread_10_9_entry(ALIGN_TYPE thread_input);
+static void    thread_12_11_entry(ALIGN_TYPE thread_input);
+static void    thread_14_13_entry(ALIGN_TYPE thread_input);
+static void    thread_16_15_entry(ALIGN_TYPE thread_input);
+static void    thread_18_17_entry(ALIGN_TYPE thread_input);
+static void    thread_20_19_entry(ALIGN_TYPE thread_input);
+static void    thread_22_21_entry(ALIGN_TYPE thread_input);
+static void    thread_24_23_entry(ALIGN_TYPE thread_input);
+static void    thread_26_25_entry(ALIGN_TYPE thread_input);
+static void    thread_28_27_entry(ALIGN_TYPE thread_input);
+static void    thread_30_29_entry(ALIGN_TYPE thread_input);
 
 /* Define timer 1 entry.  */
 
-static void    timer_0_entry(ULONG id);
+static void    timer_0_entry(ALIGN_TYPE id);
 
 
 #endif
@@ -113,7 +113,7 @@ static void    timer_0_entry(ULONG id);
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -460,7 +460,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 #ifndef TX_DISABLE_PREEMPTION_THRESHOLD
@@ -572,14 +572,14 @@ UINT old_preempt;
 
 #ifndef TX_DISABLE_PREEMPTION_THRESHOLD
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
     thread_1_counter++;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -620,7 +620,7 @@ UINT    status;
 }
 
 
-static void    thread_2a_entry(ULONG thread_input)
+static void    thread_2a_entry(ALIGN_TYPE thread_input)
 {
 
     if (thread_3_counter == 1)
@@ -628,14 +628,14 @@ static void    thread_2a_entry(ULONG thread_input)
 }
 
 
-static void    thread_3_entry(ULONG thread_input)
+static void    thread_3_entry(ALIGN_TYPE thread_input)
 {
 
     thread_3_counter++;
 }
 
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
     thread_4_counter++;
@@ -643,7 +643,7 @@ static void    thread_4_entry(ULONG thread_input)
 
 
 
-static void    timer_0_entry(ULONG id)
+static void    timer_0_entry(ALIGN_TYPE id)
 {
 
     /* Pretend like a preemption occurred on a thread priority of 1 with preemption-threshold set to 0.  */
@@ -657,7 +657,7 @@ static void    timer_0_entry(ULONG id)
 }
 
 
-static void    thread_1_0_entry(ULONG thread_input)
+static void    thread_1_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -681,7 +681,7 @@ UINT    status;
 }
 
 
-static void    thread_2_1_entry(ULONG thread_input)
+static void    thread_2_1_entry(ALIGN_TYPE thread_input)
 {
 
     /* Increment this thread's counter.  */
@@ -689,7 +689,7 @@ static void    thread_2_1_entry(ULONG thread_input)
 }
 
 
-static void    thread_3_2_entry(ULONG thread_input)
+static void    thread_3_2_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -708,7 +708,7 @@ UINT    status;
 }
 
 
-static void    thread_4_3_entry(ULONG thread_input)
+static void    thread_4_3_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -727,7 +727,7 @@ UINT    status;
 }
 
 
-static void    thread_6_5_entry(ULONG thread_input)
+static void    thread_6_5_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -752,7 +752,7 @@ UINT    status;
 }
 
 
-static void    thread_8_7_entry(ULONG thread_input)
+static void    thread_8_7_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -771,7 +771,7 @@ UINT    status;
 }
 
 
-static void    thread_10_9_entry(ULONG thread_input)
+static void    thread_10_9_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -789,7 +789,7 @@ UINT    status;
     }
 }
 
-static void    thread_12_11_entry(ULONG thread_input)
+static void    thread_12_11_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -808,7 +808,7 @@ UINT    status;
 }
 
 
-static void    thread_14_13_entry(ULONG thread_input)
+static void    thread_14_13_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -827,7 +827,7 @@ UINT    status;
 }
 
 
-static void    thread_16_15_entry(ULONG thread_input)
+static void    thread_16_15_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -846,7 +846,7 @@ UINT    status;
 }
 
 
-static void    thread_18_17_entry(ULONG thread_input)
+static void    thread_18_17_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -865,7 +865,7 @@ UINT    status;
 }
 
 
-static void    thread_20_19_entry(ULONG thread_input)
+static void    thread_20_19_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -884,7 +884,7 @@ UINT    status;
 }
 
 
-static void    thread_22_21_entry(ULONG thread_input)
+static void    thread_22_21_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -903,7 +903,7 @@ UINT    status;
 }
 
 
-static void    thread_24_23_entry(ULONG thread_input)
+static void    thread_24_23_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -921,7 +921,7 @@ UINT    status;
     }
 }
 
-static void    thread_26_25_entry(ULONG thread_input)\
+static void    thread_26_25_entry(ALIGN_TYPE thread_input)\
 {
 
 UINT    status;
@@ -939,7 +939,7 @@ UINT    status;
     }
 }
 
-static void    thread_28_27_entry(ULONG thread_input)
+static void    thread_28_27_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -957,7 +957,7 @@ UINT    status;
     }
 }
 
-static void    thread_30_29_entry(ULONG thread_input)
+static void    thread_30_29_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;

@@ -19,9 +19,9 @@ static TX_THREAD       thread_2;
 
 /* Define task prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -125,7 +125,7 @@ CHAR    *pointer;
 
 /* Define the test thread.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
     /* Increment thread 0 counter.  */
@@ -136,7 +136,7 @@ static void    thread_0_entry(ULONG thread_input)
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -237,7 +237,7 @@ UINT    status;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
     /* Increment thread 2 counter.  */

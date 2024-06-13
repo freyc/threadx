@@ -44,8 +44,8 @@ static TX_EVENT_FLAGS_GROUP group_3;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
 UINT        _txe_event_flags_create(TX_EVENT_FLAGS_GROUP *group_ptr, CHAR *name_ptr, UINT event_control_block_size);
 
 
@@ -63,7 +63,7 @@ static void event_set_notify(TX_EVENT_FLAGS_GROUP *group)
 
 /* Define the timer for this test.  */
 
-static void    timer_entry(ULONG i)
+static void    timer_entry(ALIGN_TYPE i)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING
@@ -285,7 +285,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -731,7 +731,7 @@ ULONG   actual_events;
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
     while(1)

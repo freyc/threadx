@@ -52,11 +52,11 @@ static unsigned long isr_executed =  0;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    thread_3_entry(ULONG thread_input);
-static void    thread_4_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    thread_3_entry(ALIGN_TYPE thread_input);
+static void    thread_4_entry(ALIGN_TYPE thread_input);
 
 UINT        _txe_mutex_create(TX_MUTEX *mutex_ptr, CHAR *name_ptr, UINT inherit, UINT mutex_control_block_size);
 
@@ -68,7 +68,7 @@ void  test_control_return(UINT status);
 
 /* Define the timer for this test.  */
 
-static void    timer_entry(ULONG i)
+static void    timer_entry(ALIGN_TYPE i)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING
@@ -295,7 +295,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -678,7 +678,7 @@ UINT    status;
     }
 }
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -732,7 +732,7 @@ UINT    status;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
     while(1)
@@ -743,7 +743,7 @@ static void    thread_2_entry(ULONG thread_input)
 }
 
 
-static void    thread_3_entry(ULONG thread_input)
+static void    thread_3_entry(ALIGN_TYPE thread_input)
 {
 
     while(1)
@@ -755,7 +755,7 @@ static void    thread_3_entry(ULONG thread_input)
 }
 
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
     while(1)

@@ -24,9 +24,9 @@ static UINT            stack_error =  0;
 
 /* Define task prototypes.  */
 
-static void    thread_0_entry(ULONG task_input);
-static void    thread_1_entry(ULONG task_input);
-static void    thread_2_entry(ULONG task_input);
+static void    thread_0_entry(ALIGN_TYPE task_input);
+static void    thread_1_entry(ALIGN_TYPE task_input);
+static void    thread_2_entry(ALIGN_TYPE task_input);
 
 
 /* Prototype for test control return.  */
@@ -123,7 +123,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT        status;
@@ -166,7 +166,7 @@ UINT        status;
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 TX_THREAD   fake_thread;
@@ -216,7 +216,7 @@ TX_THREAD   fake_thread;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
        
         /* Increment thread 1 counter.  */

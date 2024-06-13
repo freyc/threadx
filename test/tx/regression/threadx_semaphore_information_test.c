@@ -15,7 +15,7 @@ static TX_SEMAPHORE    semaphore_2;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 
 
 UINT        _tx_semaphore_performance_info_get(TX_SEMAPHORE *semaphore_ptr, ULONG *puts, ULONG *gets,
@@ -85,7 +85,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT            status;

@@ -19,8 +19,8 @@ static TX_TIMER             timer_2;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    timer_0_expiration(ULONG timer_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    timer_0_expiration(ALIGN_TYPE timer_input);
 
 
 /* Prototype for test control return.  */
@@ -75,7 +75,7 @@ VOID  _tx_timer_system_activate(TX_TIMER_INTERNAL *timer_ptr);
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT                status;
@@ -243,7 +243,7 @@ TX_TIMER_INTERNAL   **current_list_head;
 }
 
 
-static void    timer_0_expiration(ULONG timer_input)
+static void    timer_0_expiration(ALIGN_TYPE timer_input)
 {
 
 

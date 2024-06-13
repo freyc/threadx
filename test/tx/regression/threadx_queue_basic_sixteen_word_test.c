@@ -14,7 +14,7 @@ static TX_QUEUE        queue_1;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -83,7 +83,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;

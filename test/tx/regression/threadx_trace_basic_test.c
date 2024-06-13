@@ -65,9 +65,9 @@ static CHAR         trace_dump_file_name[]= "tracedump000.trx";
 
 /* Define task prototypes.  */
 
-static void    thread_0_entry(ULONG task_input);
-static void    thread_1_entry(ULONG task_input);
-static void    thread_2_entry(ULONG task_input);
+static void    thread_0_entry(ALIGN_TYPE task_input);
+static void    thread_1_entry(ALIGN_TYPE task_input);
+static void    thread_2_entry(ALIGN_TYPE task_input);
 
 
 /* Define the trace buffer.   */
@@ -127,7 +127,7 @@ UINT    old_interrupt;
 
 /* Define the timer for this test.  */
 
-static void    timer_entry(ULONG i)
+static void    timer_entry(ALIGN_TYPE i)
 {
 
     /* Resume thread 1.  */
@@ -264,7 +264,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -754,7 +754,7 @@ ULONG   object;
 }
 
 
-static void    thread_1_entry(ULONG task_input)
+static void    thread_1_entry(ALIGN_TYPE task_input)
 {
 
     while(1)
@@ -767,7 +767,7 @@ static void    thread_1_entry(ULONG task_input)
 
 
 
-static void    thread_2_entry(ULONG task_input)
+static void    thread_2_entry(ALIGN_TYPE task_input)
 {
 
     while(1)

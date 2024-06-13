@@ -22,12 +22,12 @@ static TX_MUTEX        mutex_1;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    thread_3_entry(ULONG thread_input);
-static void    thread_4_entry(ULONG thread_input);
-static void    low_priority_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    thread_3_entry(ALIGN_TYPE thread_input);
+static void    thread_4_entry(ALIGN_TYPE thread_input);
+static void    low_priority_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -145,7 +145,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -244,7 +244,7 @@ UINT    old_priority;
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 UINT    status;
 
@@ -261,7 +261,7 @@ UINT    status;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -279,7 +279,7 @@ UINT    status;
 }
 
 
-static void    thread_3_entry(ULONG thread_input)
+static void    thread_3_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -296,7 +296,7 @@ UINT    status;
     }
 }
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -314,6 +314,6 @@ UINT    status;
 }
 
 
-static void    low_priority_entry(ULONG thread_input)
+static void    low_priority_entry(ALIGN_TYPE thread_input)
 {
 }

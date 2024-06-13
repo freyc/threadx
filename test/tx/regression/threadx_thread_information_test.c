@@ -10,7 +10,7 @@ static TX_THREAD       thread_0;
 
 /* Define task prototypes.  */
 
-static void    thread_0_entry(ULONG task_input);
+static void    thread_0_entry(ALIGN_TYPE task_input);
 
 
 /* Prototype for test control return.  */
@@ -48,7 +48,7 @@ INT     status;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT        status;

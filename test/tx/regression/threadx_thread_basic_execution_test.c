@@ -54,10 +54,10 @@ static unsigned long isr_executed =  0;
 
 /* Define task prototypes.  */
 
-static void    thread_0_entry(ULONG task_input);
+static void    thread_0_entry(ALIGN_TYPE task_input);
 
 UINT        _txe_thread_create(TX_THREAD *thread_ptr, CHAR *name_ptr, 
-                VOID (*entry_function)(ULONG), ULONG entry_input,
+                VOID (*entry_function)(ALIGN_TYPE), ALIGN_TYPE entry_input,
                 VOID *stack_start, ULONG stack_size, 
                 UINT priority, UINT preempt_threshold, 
                 ULONG time_slice, UINT auto_start, UINT thread_control_block_size);
@@ -69,7 +69,7 @@ static TX_THREAD       thread_4;
 static ULONG           thread_4_counter = 0;
 static ULONG           isr1_counter = 0;
 static ULONG           test_case_found = TX_FALSE;
-static void            thread_4_entry(ULONG task_input);
+static void            thread_4_entry(ALIGN_TYPE task_input);
 
 #endif
 #endif
@@ -82,7 +82,7 @@ void  test_control_return(UINT status);
 
 /* Define the timer for this test.  */
 
-static void    timer_entry(ULONG i)
+static void    timer_entry(ALIGN_TYPE i)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING
@@ -277,7 +277,7 @@ TX_THREAD   *current_thread;
 
 
 #if 0
-static void    test_thread_entry(ULONG thread_input)
+static void    test_thread_entry(ALIGN_TYPE thread_input)
 {
     /* Do nothing here!  */
 }
@@ -349,7 +349,7 @@ TX_THREAD   fake_thread;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING
@@ -386,7 +386,7 @@ VOID            (*temp_mutex_release)(TX_THREAD *thread_ptr);
     test_thread.tx_thread_timer.tx_timer_internal_list_head =  TX_NULL;
     test_thread.tx_thread_suspending =                         TX_TRUE;
     test_thread.tx_thread_delayed_suspend =                    TX_TRUE;
-    _tx_thread_timeout((ULONG) &test_thread);
+    _tx_thread_timeout((ALIGN_TYPE) &test_thread);
 
     /* Setup test thread to make sure _tx_thread_terminate can handle a NULL mutex release function pointer.  */
     temp_mutex_release =  _tx_thread_mutex_release;
@@ -949,7 +949,7 @@ VOID            (*temp_mutex_release)(TX_THREAD *thread_ptr);
 #ifndef TX_INLINE_THREAD_RESUME_SUSPEND
 #ifndef TX_NOT_INTERRUPTABLE
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
 TX_INTERRUPT_SAVE_AREA  

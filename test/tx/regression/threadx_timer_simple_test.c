@@ -47,13 +47,13 @@ static unsigned long isr_executed =  0;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    timer_0_expiration(ULONG timer_input);
-static void    timer_1_expiration(ULONG timer_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    timer_0_expiration(ALIGN_TYPE timer_input);
+static void    timer_1_expiration(ALIGN_TYPE timer_input);
 
 UINT        _txe_timer_create(TX_TIMER *timer_ptr, CHAR *name_ptr, 
-                VOID (*expiration_function)(ULONG), ULONG expiration_input,
+                VOID (*expiration_function)(ALIGN_TYPE), ALIGN_TYPE expiration_input,
                 ULONG initial_ticks, ULONG reschedule_ticks, UINT auto_activate, UINT timer_control_block_size);
 
 
@@ -64,7 +64,7 @@ void  test_control_return(UINT status);
 
 /* Define the timer for this test.  */
 
-static void    timer_entry(ULONG i)
+static void    timer_entry(ALIGN_TYPE i)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING
@@ -220,7 +220,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -637,7 +637,7 @@ UINT    status;
     }
 }
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
     
     while(1)
@@ -647,7 +647,7 @@ static void    thread_1_entry(ULONG thread_input)
     }
 }
 
-static void    timer_0_expiration(ULONG timer_input)
+static void    timer_0_expiration(ALIGN_TYPE timer_input)
 {
 
 
@@ -656,7 +656,7 @@ static void    timer_0_expiration(ULONG timer_input)
 }
 
 
-static void    timer_1_expiration(ULONG timer_input)
+static void    timer_1_expiration(ALIGN_TYPE timer_input)
 {
    
     /* Process timer expiration.  */

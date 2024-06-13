@@ -354,9 +354,9 @@ TEST_ENTRY  test_control_tests[] =
 
 /* Define thread prototypes.  */
 
-void  test_control_thread_entry(ULONG thread_input);
-void  test_thread_entry(ULONG thread_input);
-void  test_thread_entry1(ULONG thread_input);
+void  test_control_thread_entry(ALIGN_TYPE thread_input);
+void  test_thread_entry(ALIGN_TYPE thread_input);
+void  test_thread_entry1(ALIGN_TYPE thread_input);
 void  test_control_return(UINT status);
 void  test_control_cleanup(void);
 void  test_exit_notify(TX_THREAD *thread_ptr, UINT type);
@@ -416,7 +416,7 @@ void test_interrupt_dispatch(void)
 
 /* Define init timer entry.  */
 
-static void   init_timer_entry(ULONG timer_input)
+static void   init_timer_entry(ALIGN_TYPE timer_input)
 {
 
 }
@@ -1136,7 +1136,7 @@ TX_THREAD   *thread_ptr;
 /* Define the test control thread.  This thread is responsible for dispatching all of the 
    tests in the ThreadX test suite.  */
 
-void  test_control_thread_entry(ULONG thread_input)
+void  test_control_thread_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    i;
@@ -1371,7 +1371,7 @@ TX_THREAD   *thread_ptr;
        in the system.  */
 }
 
-void  test_thread_entry(ULONG thread_input)
+void  test_thread_entry(ALIGN_TYPE thread_input)
 {
 
     /* Resume the next test thread.  */
@@ -1395,7 +1395,7 @@ void  test_thread_entry(ULONG thread_input)
 }
 
 
-void  test_thread_entry1(ULONG thread_input)
+void  test_thread_entry1(ALIGN_TYPE thread_input)
 {
 
     /* Do nothing, just return!  */

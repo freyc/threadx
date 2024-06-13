@@ -43,13 +43,13 @@ static int             test_status;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    thread_3_entry(ULONG thread_input);
-static void    thread_4_entry(ULONG thread_input);
-static void    thread_5_entry(ULONG thread_input);
-static void    thread_6_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    thread_3_entry(ALIGN_TYPE thread_input);
+static void    thread_4_entry(ALIGN_TYPE thread_input);
+static void    thread_5_entry(ALIGN_TYPE thread_input);
+static void    thread_6_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -213,7 +213,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -355,7 +355,7 @@ VOID    *pointer;
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 UINT    status;
 VOID    *pointer;
@@ -377,7 +377,7 @@ VOID    *pointer;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -401,7 +401,7 @@ VOID    *pointer;
 }
 
 
-static void    thread_3_entry(ULONG thread_input)
+static void    thread_3_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -425,7 +425,7 @@ VOID    *pointer;
 }
 
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -449,7 +449,7 @@ VOID    *pointer;
 }
 
 
-static void    thread_5_entry(ULONG thread_input)
+static void    thread_5_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -473,7 +473,7 @@ VOID    *pointer;
 }
 
 
-static void    thread_6_entry(ULONG thread_input)
+static void    thread_6_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;

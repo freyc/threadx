@@ -15,7 +15,7 @@ static CHAR            *pointer;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 
 UINT        _txe_block_pool_create(TX_BLOCK_POOL *pool_ptr, CHAR *name_ptr, ULONG block_size,
                     VOID *pool_start, ULONG pool_size, UINT pool_control_block_size);
@@ -111,7 +111,7 @@ INT     status;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 #ifndef TX_DISABLE_ERROR_CHECKING

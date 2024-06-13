@@ -28,12 +28,12 @@ static TX_THREAD       thread_5;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    thread_3_entry(ULONG thread_input);
-static void    thread_4_entry(ULONG thread_input);
-static void    thread_5_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    thread_3_entry(ALIGN_TYPE thread_input);
+static void    thread_4_entry(ALIGN_TYPE thread_input);
+static void    thread_5_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -147,7 +147,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 
@@ -167,7 +167,7 @@ static void    thread_0_entry(ULONG thread_input)
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 
@@ -184,7 +184,7 @@ static void    thread_1_entry(ULONG thread_input)
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
 
@@ -200,7 +200,7 @@ static void    thread_2_entry(ULONG thread_input)
     }
 }
 
-static void    thread_3_entry(ULONG thread_input)
+static void    thread_3_entry(ALIGN_TYPE thread_input)
 {
 
 
@@ -216,7 +216,7 @@ static void    thread_3_entry(ULONG thread_input)
     }
 }
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
 
@@ -232,7 +232,7 @@ static void    thread_4_entry(ULONG thread_input)
     }
 }
 
-static void    thread_5_entry(ULONG thread_input)
+static void    thread_5_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;

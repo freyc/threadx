@@ -24,11 +24,11 @@ static TX_QUEUE        queue_0a;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    thread_1a_entry(ULONG thread_input);
-static void    thread_2a_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    thread_1a_entry(ALIGN_TYPE thread_input);
+static void    thread_2a_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -151,7 +151,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -466,7 +466,7 @@ ULONG   temp[2];
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -558,7 +558,7 @@ ULONG   dest_message[2];
 }
     
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
 ULONG   source_message[2] = {0xDD000001, 0};
@@ -576,7 +576,7 @@ ULONG   destination_message[2];
 }
 
 
-static void    thread_1a_entry(ULONG thread_input)
+static void    thread_1a_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -668,7 +668,7 @@ ULONG   dest_message[2];
 }
     
 
-static void    thread_2a_entry(ULONG thread_input)
+static void    thread_2a_entry(ALIGN_TYPE thread_input)
 {
 
 ULONG   source_message[2] = {0xDD000001, 0};

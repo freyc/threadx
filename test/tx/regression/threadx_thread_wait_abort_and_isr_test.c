@@ -22,9 +22,9 @@ static TX_SEMAPHORE    semaphore_0;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    timer_0_entry(ULONG timer_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    timer_0_entry(ALIGN_TYPE timer_input);
 
 /* Define the ISR dispatch.  */
 
@@ -161,7 +161,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -244,7 +244,7 @@ UINT    status;
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
     /* Loop forever!  */
@@ -264,7 +264,7 @@ static void    thread_1_entry(ULONG thread_input)
 }
 
 
-static void    timer_0_entry(ULONG input)
+static void    timer_0_entry(ALIGN_TYPE input)
 {
     timer_0_counter++;
 }

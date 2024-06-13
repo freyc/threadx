@@ -36,10 +36,10 @@ extern UINT _tx_timer_system_clock;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
-static void    timer_0_entry(ULONG timer_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
+static void    timer_0_entry(ALIGN_TYPE timer_input);
 
 
 static void event_set_notify(TX_EVENT_FLAGS_GROUP *group)
@@ -206,7 +206,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -278,7 +278,7 @@ ULONG   actual;
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 UINT    status;
@@ -305,7 +305,7 @@ ULONG   actual;
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
     /* Loop forever!  */
@@ -325,7 +325,7 @@ static void    thread_2_entry(ULONG thread_input)
 }
 
 
-static void    timer_0_entry(ULONG input)
+static void    timer_0_entry(ALIGN_TYPE input)
 {
     timer_0_counter++;
 }

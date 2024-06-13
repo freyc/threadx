@@ -7,8 +7,8 @@
 
 #ifndef TX_DISABLE_PREEMPTION_THRESHOLD
 static unsigned long   thread_0_counter =  0;
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
 
 static unsigned long   thread_1_counter =  0;
 static TX_THREAD       thread_1;
@@ -24,7 +24,7 @@ static TX_THREAD       thread_0;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
 
 
 /* Prototype for test control return.  */
@@ -108,7 +108,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
 #ifndef TX_DISABLE_PREEMPTION_THRESHOLD
@@ -324,7 +324,7 @@ UINT    i;
 }
 
 #ifndef TX_DISABLE_PREEMPTION_THRESHOLD
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
     /* Self suspend after initial run.  */
@@ -347,7 +347,7 @@ static void    thread_1_entry(ULONG thread_input)
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
 
     while(1)

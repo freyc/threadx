@@ -20,12 +20,12 @@ static          TX_THREAD       thread_4;
 
 /* Define thread prototypes.  */
 
-static void    thread_0_entry(ULONG thread_input);
-static void    thread_1_entry(ULONG thread_input);
-static void    thread_2_entry(ULONG thread_input);
+static void    thread_0_entry(ALIGN_TYPE thread_input);
+static void    thread_1_entry(ALIGN_TYPE thread_input);
+static void    thread_2_entry(ALIGN_TYPE thread_input);
 #ifndef TX_DISABLE_PREEMPTION_THRESHOLD
-static void    thread_3_entry(ULONG thread_input);
-static void    thread_4_entry(ULONG thread_input);
+static void    thread_3_entry(ALIGN_TYPE thread_input);
+static void    thread_4_entry(ALIGN_TYPE thread_input);
 #endif
 
 
@@ -126,7 +126,7 @@ CHAR    *pointer;
 
 /* Define the test threads.  */
 
-static void    thread_0_entry(ULONG thread_input)
+static void    thread_0_entry(ALIGN_TYPE thread_input)
 {
 
     /* Enter into a forever loop.  */
@@ -142,7 +142,7 @@ static void    thread_0_entry(ULONG thread_input)
 }
 
 
-static void    thread_1_entry(ULONG thread_input)
+static void    thread_1_entry(ALIGN_TYPE thread_input)
 {
 
 
@@ -159,7 +159,7 @@ static void    thread_1_entry(ULONG thread_input)
 }
 
 
-static void    thread_2_entry(ULONG thread_input)
+static void    thread_2_entry(ALIGN_TYPE thread_input)
 {
   
 unsigned long   counter_sum;
@@ -232,7 +232,7 @@ UINT            status;
 
 /* Define the test threads.  */
 
-static void    thread_3_entry(ULONG thread_input)
+static void    thread_3_entry(ALIGN_TYPE thread_input)
 {
 
     /* Enter into a forever loop.  */
@@ -248,7 +248,7 @@ static void    thread_3_entry(ULONG thread_input)
 }
 
 
-static void    thread_4_entry(ULONG thread_input)
+static void    thread_4_entry(ALIGN_TYPE thread_input)
 {
 
 
