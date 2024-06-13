@@ -392,8 +392,8 @@ typedef struct TX_TIMER_INTERNAL_STRUCT
     ULONG               tx_timer_internal_re_initialize_ticks;
 
     /* Define the timeout function and timeout function parameter.  */
-    VOID                (*tx_timer_internal_timeout_function)(ULONG id);
-    ULONG               tx_timer_internal_timeout_param;
+    VOID                (*tx_timer_internal_timeout_function)(ALIGN_TYPE id);
+    ALIGN_TYPE          tx_timer_internal_timeout_param;
 
 
     /* Define the next and previous internal link pointers for active
