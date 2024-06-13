@@ -94,11 +94,11 @@ TX_BLOCK_POOL       *previous_pool;
 
     /* Round the block size up to something that is evenly divisible by
        an ALIGN_TYPE (typically this is a 32-bit ULONG). This helps guarantee proper alignment.  */
-    block_size =  (((block_size + (sizeof(ALIGN_TYPE))) - ((ALIGN_TYPE) 1))/(sizeof(ALIGN_TYPE))) * (sizeof(ALIGN_TYPE));
+    block_size =  (((block_size + ((ULONG)sizeof(ALIGN_TYPE))) - ((ULONG) 1))/((ULONG)sizeof(ALIGN_TYPE))) * ((ULONG)sizeof(ALIGN_TYPE));
 
     /* Round the pool size down to something that is evenly divisible by
        an ALIGN_TYPE (typically this is a 32-bit ULONG).  */
-    pool_size =   (pool_size/(sizeof(ALIGN_TYPE))) * (sizeof(ALIGN_TYPE));
+    pool_size =   (pool_size/((ULONG)sizeof(ALIGN_TYPE))) * ((ULONG)sizeof(ALIGN_TYPE));
 
     /* Setup the basic block pool fields.  */
     pool_ptr -> tx_block_pool_name =             name_ptr;
@@ -107,12 +107,12 @@ TX_BLOCK_POOL       *previous_pool;
     pool_ptr -> tx_block_pool_block_size =       (UINT) block_size;
 
     /* Calculate the total number of blocks.  */
-    total_blocks =  pool_size/(block_size + (sizeof(UCHAR *)));
+    total_blocks =  (ULONG)pool_size/(block_size + ((ULONG)sizeof(UCHAR *)));
 
     /* Walk through the pool area, setting up the available block list.  */
     blocks =            ((UINT) 0);
     block_ptr =         TX_VOID_TO_UCHAR_POINTER_CONVERT(pool_start);
-    next_block_ptr =    TX_UCHAR_POINTER_ADD(block_ptr, (block_size + (sizeof(UCHAR *))));
+    next_block_ptr =    TX_UCHAR_POINTER_ADD(block_ptr, (block_size + ((ULONG)sizeof(UCHAR *))));
     while(blocks < (UINT) total_blocks)
     {
 
@@ -127,7 +127,7 @@ TX_BLOCK_POOL       *previous_pool;
         block_ptr =   next_block_ptr;
 
         /* Update the next block pointer.  */
-        next_block_ptr =  TX_UCHAR_POINTER_ADD(block_ptr, (block_size + (sizeof(UCHAR *))));
+        next_block_ptr =  TX_UCHAR_POINTER_ADD(block_ptr, (block_size + ((ULONG)sizeof(UCHAR *))));
     }
 
     /* Save the remaining information in the pool control block.  */
@@ -139,7 +139,7 @@ TX_BLOCK_POOL       *previous_pool;
     {
 
         /* Backup to the last block in the pool.  */
-        block_ptr =  TX_UCHAR_POINTER_SUB(block_ptr,(block_size + (sizeof(UCHAR *))));
+        block_ptr =  TX_UCHAR_POINTER_SUB(block_ptr,(block_size + ((ULONG)sizeof(UCHAR *))));
 
         /* Set the last block's forward pointer to NULL.  */
         block_link_ptr =  TX_UCHAR_TO_INDIRECT_UCHAR_POINTER_CONVERT(block_ptr);

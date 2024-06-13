@@ -106,7 +106,7 @@ ULONG           total_theoretical_available;
 
     /* First, determine if there are enough bytes in the pool.  */
     /* Theoretical bytes available = free bytes + ((fragments-2) * overhead of each block) */
-    total_theoretical_available = pool_ptr -> tx_byte_pool_available + ((pool_ptr -> tx_byte_pool_fragments - 2) * ((sizeof(UCHAR *)) + (sizeof(ALIGN_TYPE))));
+    total_theoretical_available = pool_ptr -> tx_byte_pool_available + ((pool_ptr -> tx_byte_pool_fragments - 2) * (((ULONG)sizeof(UCHAR *)) + ((ULONG)sizeof(ALIGN_TYPE))));
     if (memory_size >= total_theoretical_available)
     {
 
@@ -167,7 +167,7 @@ ULONG           total_theoretical_available;
 
                 /* Calculate the number of bytes available in this block.  */
                 available_bytes =   TX_UCHAR_POINTER_DIF(next_ptr, current_ptr);
-                available_bytes =   available_bytes - ((sizeof(UCHAR *)) + (sizeof(ALIGN_TYPE)));
+                available_bytes =   available_bytes - (((ULONG)sizeof(UCHAR *)) + ((ULONG)sizeof(ALIGN_TYPE)));
 
                 /* If this is large enough, we are done because our first-fit algorithm
                    has been satisfied!  */
@@ -318,7 +318,7 @@ ULONG           total_theoretical_available;
             *this_block_link_ptr =  TX_BYTE_POOL_TO_UCHAR_POINTER_CONVERT(pool_ptr);
 
             /* Reduce the number of available bytes in the pool.  */
-            pool_ptr -> tx_byte_pool_available =  (pool_ptr -> tx_byte_pool_available - available_bytes) - ((sizeof(UCHAR *)) + (sizeof(ALIGN_TYPE)));
+            pool_ptr -> tx_byte_pool_available =  (pool_ptr -> tx_byte_pool_available - available_bytes) - (((ULONG)sizeof(UCHAR *)) + ((ULONG)sizeof(ALIGN_TYPE)));
 
             /* Determine if the search pointer needs to be updated. This is only done
                if the search pointer matches the block to be returned.  */

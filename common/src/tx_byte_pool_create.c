@@ -90,7 +90,7 @@ ALIGN_TYPE          *free_ptr;
 
     /* Round the pool size down to something that is evenly divisible by
        an ULONG.  */
-    pool_size =   (pool_size/(sizeof(ALIGN_TYPE))) * (sizeof(ALIGN_TYPE));
+    pool_size =   (ULONG)(pool_size/((ULONG)sizeof(ALIGN_TYPE))) * ((ULONG)sizeof(ALIGN_TYPE));
 
     /* Setup the basic byte pool fields.  */
     pool_ptr -> tx_byte_pool_name =              name_ptr;
@@ -107,7 +107,7 @@ ALIGN_TYPE          *free_ptr;
        beginning that is available and a small allocated block at the end
        of the pool that is there just for the algorithm.  Be sure to count
        the available block's header in the available bytes count.  */
-    pool_ptr -> tx_byte_pool_available =   pool_size - ((sizeof(VOID *)) + (sizeof(ALIGN_TYPE)));
+    pool_ptr -> tx_byte_pool_available =   pool_size - (((ULONG)sizeof(VOID *)) + ((ULONG)sizeof(ALIGN_TYPE)));
     pool_ptr -> tx_byte_pool_fragments =   ((UINT) 2);
 
     /* Each block contains a "next" pointer that points to the next block in the pool followed by a ALIGN_TYPE

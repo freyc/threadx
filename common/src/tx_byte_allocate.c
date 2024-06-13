@@ -103,7 +103,7 @@ ULONG                       lower_tbu;
 
     /* Round the memory size up to the next size that is evenly divisible by
        an ALIGN_TYPE (this is typically a 32-bit ULONG).  This guarantees proper alignment.  */
-    memory_size = (((memory_size + (sizeof(ALIGN_TYPE)))-((ALIGN_TYPE) 1))/(sizeof(ALIGN_TYPE))) * (sizeof(ALIGN_TYPE));
+    memory_size = (ULONG)(((memory_size + ((ULONG)sizeof(ALIGN_TYPE)))-((ULONG) 1))/((ULONG)sizeof(ALIGN_TYPE))) * ((ULONG)sizeof(ALIGN_TYPE));
 
     /* Disable interrupts.  */
     TX_DISABLE
