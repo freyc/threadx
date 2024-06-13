@@ -476,9 +476,8 @@ void _tx_thread_reset_port_completion(struct TX_THREAD_STRUCT *thread_ptr, UINT 
 
 /* Define the internal timer extension to also hold the thread pointer such that _tx_thread_timeout
    can figure out what thread timeout to process.  */
-
+#if 0
 #define TX_TIMER_INTERNAL_EXTENSION             VOID    *tx_timer_internal_extension_ptr;
-
 
 /* Define the thread timeout setup logic in _tx_thread_create.  */
 
@@ -490,6 +489,7 @@ void _tx_thread_reset_port_completion(struct TX_THREAD_STRUCT *thread_ptr, UINT 
 /* Define the thread timeout pointer setup in _tx_thread_timeout.  */
 
 #define TX_THREAD_TIMEOUT_POINTER_SETUP(t)   (t) =  (TX_THREAD *) _tx_timer_expired_timer_ptr -> tx_timer_internal_extension_ptr;
+#endif
 #endif /* __x86_64__ */
 
 
