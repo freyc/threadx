@@ -217,8 +217,8 @@ CHAR    *pointer;
     }
 
     /* Create block pools 0 and 1.  */
-    status =  tx_block_pool_create(&pool_0, "pool 0", 100, pointer, 320);
-    pointer = pointer + 320;
+    status =  tx_block_pool_create(&pool_0, "pool 0", 100, pointer, 336);
+    pointer = pointer + 336;
 
     /* Check status.  */
     if (status != TX_SUCCESS)

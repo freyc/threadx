@@ -256,8 +256,8 @@ CHAR    *pointer;
     }
 
     /* Create byte pools 0 and 1.  */
-    status =  tx_byte_pool_create(&pool_0, "pool 0", pointer, 108);
-    pointer = pointer + 108;
+    status =  tx_byte_pool_create(&pool_0, "pool 0", pointer, 140);
+    pointer = pointer + 140;
 
     /* Check status.  */
     if (status != TX_SUCCESS)
@@ -279,9 +279,9 @@ CHAR    *pointer;
     }
 
     /* Test for search pointer issue on wrapped seach with prior block to search pointer merged.  */
-    status =  tx_byte_pool_create(&pool_4, "pool 4", pointer, 300);
+    status =  tx_byte_pool_create(&pool_4, "pool 4", pointer, 320);
     pool_4_memory =  pointer;
-    pointer = pointer + 300;
+    pointer = pointer + 320;
 
     /* Check status.  */
     if (status != TX_SUCCESS)
@@ -353,7 +353,7 @@ CHAR    *pointer_2;
 CHAR    *pointer_3;
 CHAR    *pointer_4;
 INT     i;
-ULONG   array[20];
+ALIGN_TYPE   array[20];
 UCHAR   *save_search;
 
 
@@ -626,7 +626,7 @@ UCHAR   *save_search;
 
     /* Test another bad block release.... pool pointer is not a valid pool!  */
     array[0] =  0;
-    array[1] =  (ULONG) &array[3];
+    array[1] =  (ALIGN_TYPE) &array[3];
     array[2] =  0;
     array[3] =  0;
     status =  _tx_byte_release(&array[2]);
@@ -865,7 +865,7 @@ UCHAR   *save_search;
     }
 
     /* Move the search pointer to the third block to exercise that code in the byte search algorithm.  */
-    pool_0.tx_byte_pool_search =  (UCHAR *) pointer_3-8;
+    pool_0.tx_byte_pool_search =  (UCHAR *) pointer_3 - sizeof(UCHAR*) - sizeof(ALIGN_TYPE); //8;
 
     /* Now allocate the block again.  */
     status = tx_byte_allocate(&pool_0, (VOID **) &pointer_2, 24, TX_NO_WAIT);
@@ -885,7 +885,7 @@ UCHAR   *save_search;
     status +=  tx_byte_release(pointer_1);
     
     /* Move the search pointer to the third block to exercise that code in the byte search algorithm.  */
-    pool_0.tx_byte_pool_search =  (UCHAR *) pointer_3-8;
+    pool_0.tx_byte_pool_search =  (UCHAR *) pointer_3 - sizeof(UCHAR*) - sizeof(ALIGN_TYPE); //16;
 
     /* Allocate a large block to force the search pointer update.  */
     status = tx_byte_allocate(&pool_0, (VOID **) &pointer_3, 88, TX_NO_WAIT);
@@ -973,9 +973,9 @@ UCHAR   *save_search;
     }
 
     /* Allocate three blocks...  */
-    status =   tx_byte_allocate(&pool_4, (VOID **) &pointer_1, 84, TX_NO_WAIT);
-    status +=  tx_byte_allocate(&pool_4, (VOID **) &pointer_2, 84, TX_NO_WAIT);
-    status +=  tx_byte_allocate(&pool_4, (VOID **) &pointer_3, 84, TX_NO_WAIT);
+    status =   tx_byte_allocate(&pool_4, (VOID **) &pointer_1, 72, TX_NO_WAIT);
+    status +=  tx_byte_allocate(&pool_4, (VOID **) &pointer_2, 72, TX_NO_WAIT);
+    status +=  tx_byte_allocate(&pool_4, (VOID **) &pointer_3, 72, TX_NO_WAIT);
 
     /* Check status.  */
     if (status != TX_SUCCESS)
@@ -1023,9 +1023,9 @@ UCHAR   *save_search;
     status =  tx_byte_release(pointer_1);
     
     /* Allocate all the blocks.  */
-    status =  tx_byte_allocate(&pool_4, (VOID **) &pointer_1, 84, TX_NO_WAIT);
-    status += tx_byte_allocate(&pool_4, (VOID **) &pointer_2, 84, TX_NO_WAIT);
-    status += tx_byte_allocate(&pool_4, (VOID **) &pointer_3, 84, TX_NO_WAIT);
+    status =  tx_byte_allocate(&pool_4, (VOID **) &pointer_1, 72, TX_NO_WAIT);
+    status += tx_byte_allocate(&pool_4, (VOID **) &pointer_2, 72, TX_NO_WAIT);
+    status += tx_byte_allocate(&pool_4, (VOID **) &pointer_3, 72, TX_NO_WAIT);
     
     /* Release all of the blocks in order.  */
     status += tx_byte_release(pointer_1);
